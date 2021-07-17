@@ -1,5 +1,6 @@
 import React, { createContext } from "react";
 import { makeAutoObservable } from "mobx";
+import { CLEAR_JOKER } from "contants/listContants";
 
 export const MainContext = createContext(null);
 
@@ -12,6 +13,8 @@ class MainStore {
 
   searchKey = "";
 
+  apiFilters = { gender: CLEAR_JOKER, status: CLEAR_JOKER };
+
   favoriteCharacters = [];
   //#endregion observable
 
@@ -23,6 +26,10 @@ class MainStore {
   //#region action
   setValue = (key, value) => {
     this[key] = value;
+  };
+
+  setObjectValue = (objKey, key, value) => {
+    this[objKey][key] = value;
   };
 
   addFavorite = (character) => {

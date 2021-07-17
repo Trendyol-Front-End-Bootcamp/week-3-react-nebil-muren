@@ -4,6 +4,7 @@ import { Link, useHistory, useLocation } from "react-router-dom";
 
 import logoAlt from "assets/img/logo-alternative.png";
 import { MainContext } from "store/MainStore";
+import { CLEAR_JOKER } from "contants/listContants";
 
 const Header = () => {
   const store = useContext(MainContext);
@@ -17,6 +18,10 @@ const Header = () => {
           to="/"
           onClick={() => {
             store.setValue("searchKey", "");
+            store.setValue("apiFilters", {
+              gender: CLEAR_JOKER,
+              status: CLEAR_JOKER,
+            });
             history.push(pathname);
           }}
         >

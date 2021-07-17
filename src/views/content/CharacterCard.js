@@ -8,7 +8,7 @@ import FavoriteIcon from "components/FavoriteIcon";
 
 const CharacterCard = ({ character }) => {
   const store = useContext(MainContext);
-  window.character = character;
+
   return (
     <Col className="mt-3 character-card" xs={12} sm={6} md={4} xl={3}>
       <FavoriteIcon

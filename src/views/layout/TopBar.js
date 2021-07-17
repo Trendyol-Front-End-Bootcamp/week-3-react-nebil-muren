@@ -5,7 +5,11 @@ import { observer } from "mobx-react-lite";
 import { Link, useHistory, useLocation } from "react-router-dom";
 
 import { MainContext } from "store/MainStore";
-import { ITEM_PER_PAGE_LIST } from "contants/listContants";
+import {
+  GENDER_LIST,
+  ITEM_PER_PAGE_LIST,
+  STATUS_LIST,
+} from "contants/listContants";
 import DropdownCard from "components/DropdownCard";
 import SearchBox from "components/SearchBox";
 import favoriteFilled from "assets/img/favorite-filled-icon.png";
@@ -63,24 +67,54 @@ const TopBar = () => {
           )
         )}
       </Col>
-      <Col className="d-flex justify-content-end gap-2">
-        <DropdownCard
-          className="p-2"
-          text="Items:"
-          value={store.itemPerPage}
-          itemList={ITEM_PER_PAGE_LIST}
-          onClick={(event) => {
-            store.setValue("itemPerPage", event.target.innerText);
-          }}
-        />
-        <SearchBox
-          className="p-2"
-          onSearchChanged={(searchKey) => {
-            store.setValue("searchKey", searchKey);
-          }}
-          value={store.searchKey}
-          placeholder="Search"
-        />
+      <Col className="d-flex flex-column gap-2">
+        <div className="d-flex justify-content-end gap-2">
+          <DropdownCard
+            className="p-2"
+            text="Items:"
+            value={store.itemPerPage}
+            itemList={ITEM_PER_PAGE_LIST}
+            onClick={(event) => {
+              store.setValue("itemPerPage", event.target.innerText);
+            }}
+          />
+          <SearchBox
+            className="p-2"
+            onSearchChanged={(searchKey) => {
+              store.setValue("searchKey", searchKey);
+            }}
+            value={store.searchKey}
+            placeholder="Search"
+          />
+        </div>
+        <div className="d-flex justify-content-end gap-2">
+          <DropdownCard
+            className="p-2"
+            text="Gender:"
+            value={store.apiFilters.gender}
+            itemList={GENDER_LIST}
+            onClick={(event) => {
+              store.setObjectValue(
+                "apiFilters",
+                "gender",
+                event.target.innerText
+              );
+            }}
+          />
+          <DropdownCard
+            className="p-2"
+            text="Status:"
+            value={store.apiFilters.status}
+            itemList={STATUS_LIST}
+            onClick={(event) => {
+              store.setObjectValue(
+                "apiFilters",
+                "status",
+                event.target.innerText
+              );
+            }}
+          />
+        </div>
       </Col>
     </Row>
   );

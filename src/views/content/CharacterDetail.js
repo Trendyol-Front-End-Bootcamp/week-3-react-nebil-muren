@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import { getChainQuery, getCharacterById } from "service/characters";
+import { getChainQuery, getCharacters } from "service/characters";
 import CharacterStats from "views/content/CharacterStats";
 import LoadingSpinner from "components/LoadingSpinner";
 
@@ -12,7 +12,7 @@ const CharacterDetail = () => {
 
   useEffect(() => {
     if (characterId) {
-      getCharacterById(characterId).then((res) => {
+      getCharacters(characterId).then((res) => {
         const episodePromise = res.episode
           .slice(Math.max(res.episode.length - 5, 0))
           .map(
