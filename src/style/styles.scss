@@ -1,0 +1,131 @@
+$primary-font: "Poppins", Verdana, sans-serif;
+$secondary-font: Georgia, Times, serif;
+$primary-text-color: #000000;
+$secondary-text-color: #7f8c8d;
+$bootstrap-text-color: #212529;
+$primary-color: #ffffff;
+$secondary-color: #f6f7fb;
+$tertiary-color: #37bd9cff;
+
+body {
+  margin: 0;
+  background-color: $primary-color;
+  font-family: $primary-font;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $secondary-font;
+}
+
+.black-text {
+  color: $primary-text-color;
+}
+
+.text-medium {
+  font-size: medium;
+}
+
+.sized-img {
+  width: 200px;
+  height: 200px;
+}
+
+.content {
+  background-color: $secondary-color;
+}
+
+.character-card {
+  position: relative;
+  a {
+    text-decoration: none;
+    color: $bootstrap-text-color;
+  }
+  .character-card-favorite {
+    position: absolute;
+    z-index: 1;
+    right: 0.5rem;
+  }
+}
+
+.custom-pagination {
+  button {
+    border: none;
+    background: none;
+    min-width: 2.5rem;
+    padding: 0 0.5rem;
+    .custom-pagination-active {
+      padding: 0 0.5rem;
+      border-bottom: 0.1rem solid $primary-text-color;
+    }
+  }
+}
+
+.custom-searcbox {
+  .form-control {
+    border-radius: 7px;
+    border: 1.5px solid $secondary-color;
+    background-color: $secondary-color;
+    height: 3rem;
+    &:focus {
+      box-shadow: none;
+    }
+  }
+  .input-group-append a {
+    background-color: $secondary-color;
+    border: none;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.custom-dropdown {
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+  #dropdown-toggle {
+    color: $bootstrap-text-color;
+    border: 1.5px solid $secondary-color;
+    background-color: $secondary-color;
+    height: 3rem;
+    &:focus {
+      box-shadow: none;
+    }
+  }
+}
+
+.abilities-row {
+  row-gap: 0.5rem;
+}
+
+.topbar-button {
+  background-color: $primary-color;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+
+  @media (min-width: 576px) {
+    div:nth-child(2) {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
+  img {
+    margin-right: 0.3rem;
+  }
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;1,400&display=swap");
